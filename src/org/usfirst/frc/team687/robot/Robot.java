@@ -1,7 +1,7 @@
-
 package org.usfirst.frc.team687.robot;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -25,8 +25,7 @@ public class Robot extends IterativeRobot {
 	SmartDashboard smartDash;
     public void robotInit() {
     	joy = new Joystick(1);
-        testMotor = new CANTalon(8);
-
+    	testMotor = new CANTalon(0);
     }
 
     /**
@@ -41,7 +40,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
     	//8 is the current port
-        testMotor.set(joy.getY());
+    	testMotor.set(joy.getY());
         SmartDashboard.putNumber("PDP Current (channel 1)", pdp.getCurrent(1));
         SmartDashboard.putNumber("PDP Current (channel 2)", pdp.getCurrent(2));
         SmartDashboard.putNumber("PDP Current (channel 3)", pdp.getCurrent(3));
